@@ -30,14 +30,15 @@ const Form = () => {
 
   const onSubmit = async (values, e) => {
     const data = { ...values, time: Date.now(), id: nanoid(), isDone: false };
+    const dataBase = await get(taskKey);
 
-    setState((prevState) => {
-      console.log("🚀 ~ prevState", prevState);
-      return prevState.length === 0 ? [data] : [...prevState, data];
-    });
-
-    await save(taskKey, state);
-    e.resetForm();
+    if (!dataBase) {
+      await save(taskKey, [data]);
+      e.resetForm();
+    } else {
+      await save(taskKey, [...dataBase, data]);
+      e.resetForm();
+    }
   };
 
   return (

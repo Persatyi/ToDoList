@@ -1,0 +1,35 @@
+.btnSection {
+  background-color: rgb(0, 188, 212);
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sectionBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: transparent;
+  background-color: rgb(0, 188, 212);
+  height: 70px;
+  width: 200px;
+
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.sectionBtn:not(:last-child) {
+  margin-right: 20px;
+}
+
+.btnIcon {
+  width: 25px;
+  height: 25px;
+}
