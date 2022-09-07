@@ -23,7 +23,7 @@ function App() {
   return (
     <>
       <Header />
-      <Form />
+      <Form setState={setState} />
       <TaskSection data={state} setState={setState} />
     </>
   );

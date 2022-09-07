@@ -7,7 +7,7 @@ import { BiTask } from "react-icons/bi";
 import { FaTasks } from "react-icons/fa";
 import { useState } from "react";
 
-const TaskSection = ({ data, setState }) => {
+const TaskSection = ({ data = [], setState }) => {
   const [type, setType] = useState("toDo");
 
   return (
@@ -20,7 +20,7 @@ const TaskSection = ({ data, setState }) => {
             onClick={() => setType("toDo")}
           >
             <BsListTask className={s.btnIcon} />
-            to do
+            to do ({data.filter((el) => el.isDone === false).length || 0})
           </button>
           <button
             className={s.sectionBtn}
@@ -28,7 +28,7 @@ const TaskSection = ({ data, setState }) => {
             onClick={() => setType("done")}
           >
             <BiTask className={s.btnIcon} />
-            done
+            done ({data.filter((el) => el.isDone === true).length || 0})
           </button>
           <button
             className={s.sectionBtn}
@@ -36,7 +36,7 @@ const TaskSection = ({ data, setState }) => {
             onClick={() => setType("all")}
           >
             <FaTasks className={s.btnIcon} />
-            all
+            all ({data.length || 0})
           </button>
         </Container>
       </section>

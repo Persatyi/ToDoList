@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { Formik } from "formik";
 import { MdAddTask, MdDescription } from "react-icons/md";
 import { nanoid } from "nanoid";
@@ -13,30 +12,18 @@ const initialValues = {
   description: "",
 };
 
-const Form = () => {
-  const [state, setState] = useState([]);
-
-  useEffect(() => {
-    updateData();
-  }, []);
-
-  const updateData = async () => {
-    const dataBase = await get(taskKey);
-
-    if (dataBase) {
-      setState(dataBase);
-    }
-  };
-
+const Form = ({ setState }) => {
   const onSubmit = async (values, e) => {
     const data = { ...values, time: Date.now(), id: nanoid(), isDone: false };
     const dataBase = await get(taskKey);
 
     if (!dataBase) {
       await save(taskKey, [data]);
+      setState([data]);
       e.resetForm();
     } else {
       await save(taskKey, [...dataBase, data]);
+      setState([data, ...dataBase]);
       e.resetForm();
     }
   };
