@@ -1,0 +1,106 @@
+.mainContent {
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.item {
+  position: relative;
+  display: flex;
+  padding: 20px 20px 25px 10px;
+  width: 400px;
+  min-height: 100px;
+  border-radius: 2px;
+  box-shadow: 0px 2px 4px rgb(0 0 0 / 25%);
+}
+
+.item:not(:last-child) {
+  margin-bottom: 8px;
+}
+
+.iconsWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.iconDone {
+  display: block;
+  width: 25px;
+  height: 25px;
+  color: rgb(0, 188, 212);
+}
+
+.editIcon {
+  display: block;
+  width: 25px;
+  height: 25px;
+  color: #5d6d7e;
+  cursor: pointer;
+  transition: scale 250ms linear, color 250ms linear;
+}
+
+.editIcon:hover {
+  color: rgb(0, 188, 212);
+}
+
+.editIcon:active {
+  transform: scale(0.98);
+}
+
+.deleteIcon {
+  display: block;
+  width: 20px;
+  height: 25px;
+  color: #5d6d7e;
+  cursor: pointer;
+  transition: scale 250ms linear, color 250ms linear;
+}
+
+.deleteIcon:hover {
+  color: rgb(0, 188, 212);
+}
+
+.deleteIcon:active {
+  transform: scale(0.98);
+}
+
+.contentWrapper {
+  padding-left: 10px;
+}
+
+.name {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.25;
+  color: #17202a;
+  margin-bottom: 10px;
+}
+
+.description {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.25;
+  color: #5d6d7e;
+}
+
+.time {
+  position: absolute;
+  bottom: 5px;
+  right: 20px;
+
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.25;
+  color: #5d6d7e;
+}
