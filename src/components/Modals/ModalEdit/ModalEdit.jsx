@@ -1,5 +1,6 @@
 import { Formik } from "formik";
 import { MdAddTask, MdDescription } from "react-icons/md";
+import { toast } from "react-toastify";
 
 import s from "./ModalEdit.module.css";
 import ModalWrapper from "components/ModalWrapper";
@@ -18,13 +19,14 @@ const ModalEdit = ({ open, onClose, data = {}, setState }) => {
     const dataBase = await get(taskKey);
     const index = dataBase.findIndex((el) => el.id === id);
     const obj = dataBase[index];
-    const newObj = { ...obj, ...values, time: Date.now() };
+    const newObj = { ...obj, ...values, time: Date.now(), edited: true };
     const copyOfData = [...dataBase];
     copyOfData.splice(index, 1, newObj);
 
     await save(taskKey, copyOfData);
     setState(copyOfData);
     onClose();
+    toast.success("Task successfully edited");
   };
 
   return (

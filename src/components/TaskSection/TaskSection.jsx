@@ -38,6 +38,7 @@ const TaskSection = ({ data = [], setState }) => {
             <FaTasks className={s.btnIcon} />
             all ({data.length || 0})
           </button>
+          <div className={`${s.selected} ${s[type]}`}></div>
         </Container>
       </section>
       <TaskList data={data} setState={setState} section={type} />

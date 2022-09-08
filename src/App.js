@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import Header from "components/Header";
 import Form from "components/Form";
@@ -25,6 +27,17 @@ function App() {
       <Header />
       <Form setState={setState} />
       <TaskSection data={state} setState={setState} />
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={true}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </>
   );
 }

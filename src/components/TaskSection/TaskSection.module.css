@@ -3,6 +3,7 @@
 }
 
 .wrapper {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -38,4 +39,22 @@
 .btnIcon {
   width: 25px;
   height: 25px;
+}
+
+.selected {
+  position: absolute;
+  bottom: 0;
+  left: calc(100% / 2 - 330px);
+  width: 200px;
+  height: 2px;
+  background-color: rgb(255, 64, 129);
+  transition: left 250ms linear;
+}
+
+.done {
+  left: calc(100% / 2 - 110px);
+}
+
+.all {
+  left: calc(100% / 2 + 110px);
 }

@@ -1,6 +1,7 @@
 import { Formik } from "formik";
 import { MdAddTask, MdDescription } from "react-icons/md";
 import { nanoid } from "nanoid";
+import { toast } from "react-toastify";
 
 import s from "./Form.module.css";
 import Container from "components/Container";
@@ -20,12 +21,12 @@ const Form = ({ setState }) => {
     if (!dataBase) {
       await save(taskKey, [data]);
       setState([data]);
-      e.resetForm();
     } else {
       await save(taskKey, [...dataBase, data]);
       setState([data, ...dataBase]);
-      e.resetForm();
     }
+    e.resetForm();
+    toast.success("Task successfully created");
   };
 
   return (
