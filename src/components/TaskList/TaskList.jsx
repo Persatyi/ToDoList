@@ -72,6 +72,7 @@ const TaskList = ({ data, setState, section = "toDo" }) => {
               open={modalEdit}
               onClose={() => setModalEdit(false)}
               data={task}
+              setState={setState}
             />
           )}
         </section>
@@ -112,6 +113,7 @@ const TaskList = ({ data, setState, section = "toDo" }) => {
               open={modalEdit}
               onClose={() => setModalEdit(false)}
               data={task}
+              setState={setState}
             />
           )}
         </section>
@@ -166,6 +168,7 @@ const TaskList = ({ data, setState, section = "toDo" }) => {
               open={modalEdit}
               onClose={() => setModalEdit(false)}
               data={task}
+              setState={setState}
             />
           )}
         </section>
