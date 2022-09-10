@@ -10,6 +10,10 @@ import { useState } from "react";
 const TaskSection = ({ data = [], setState }) => {
   const [type, setType] = useState("toDo");
 
+  const btnHandler = (type) => {
+    setType(type);
+  };
+
   return (
     <>
       <section className={s.btnSection}>
@@ -17,7 +21,7 @@ const TaskSection = ({ data = [], setState }) => {
           <button
             className={s.sectionBtn}
             type="button"
-            onClick={() => setType("toDo")}
+            onClick={() => btnHandler("toDo")}
           >
             <BsListTask className={s.btnIcon} />
             to do ({data.filter((el) => el.isDone === false).length || 0})
@@ -25,7 +29,7 @@ const TaskSection = ({ data = [], setState }) => {
           <button
             className={s.sectionBtn}
             type="button"
-            onClick={() => setType("done")}
+            onClick={() => btnHandler("done")}
           >
             <BiTask className={s.btnIcon} />
             done ({data.filter((el) => el.isDone === true).length || 0})
@@ -33,7 +37,7 @@ const TaskSection = ({ data = [], setState }) => {
           <button
             className={s.sectionBtn}
             type="button"
-            onClick={() => setType("all")}
+            onClick={() => btnHandler("all")}
           >
             <FaTasks className={s.btnIcon} />
             all ({data.length || 0})
@@ -41,7 +45,7 @@ const TaskSection = ({ data = [], setState }) => {
           <div className={`${s.selected} ${s[type]}`}></div>
         </Container>
       </section>
-      <TaskList data={data} setState={setState} section={type} />
+      <TaskList data={data} setState={setState} type={type} />
     </>
   );
 };
