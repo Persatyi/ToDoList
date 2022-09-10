@@ -1,7 +1,9 @@
 import { toast } from "react-toastify";
+import PropTypes from "prop-types";
 
 import s from "./ModalDelete.module.css";
 import ModalWrapper from "components/ModalWrapper";
+import Button from "components/Button";
 import { get, save, taskKey } from "localStorage/localStorage";
 
 const ModalDelete = ({ open, onClose, id, setState }) => {
@@ -20,16 +22,29 @@ const ModalDelete = ({ open, onClose, id, setState }) => {
       <div className={s.modalWindow}>
         <h3 className={s.title}>Please confirm removal</h3>
         <div className={s.btnWrapper}>
-          <button type="button" className={s.button} onClick={removeTask}>
-            remove
-          </button>
-          <button type="button" className={s.button} onClick={onClose}>
-            cancel
-          </button>
+          <Button
+            type="button"
+            className={s.button}
+            onClick={removeTask}
+            text="remove"
+          />
+          <Button
+            type="button"
+            className={s.button}
+            onClick={onClose}
+            text="cancel"
+          />
         </div>
       </div>
     </ModalWrapper>
   );
+};
+
+ModalDelete.propTypes = {
+  setState: PropTypes.func,
+  id: PropTypes.string,
+  onClose: PropTypes.func,
+  open: PropTypes.bool,
 };
 
 export default ModalDelete;

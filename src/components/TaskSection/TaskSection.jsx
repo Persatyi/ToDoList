@@ -1,11 +1,12 @@
-import s from "./TaskSection.module.css";
-import Container from "components/Container";
-import TaskList from "components/TaskList";
-
 import { BsListTask } from "react-icons/bs";
 import { BiTask } from "react-icons/bi";
 import { FaTasks } from "react-icons/fa";
 import { useState } from "react";
+import PropTypes from "prop-types";
+
+import s from "./TaskSection.module.css";
+import Container from "components/Container";
+import TaskList from "components/TaskList";
 
 const TaskSection = ({ data = [], setState }) => {
   const [type, setType] = useState("toDo");
@@ -48,6 +49,11 @@ const TaskSection = ({ data = [], setState }) => {
       <TaskList data={data} setState={setState} type={type} />
     </>
   );
+};
+
+TaskSection.propTypes = {
+  data: PropTypes.array,
+  setState: PropTypes.func,
 };
 
 export default TaskSection;

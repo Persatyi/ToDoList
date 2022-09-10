@@ -1,6 +1,7 @@
 import { AiOutlineFileDone, AiFillEdit, AiTwotoneDelete } from "react-icons/ai";
 import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
+import PropTypes from "prop-types";
 
 import s from "./TaskList.module.css";
 import Container from "components/Container";
@@ -108,6 +109,12 @@ const TaskList = ({ data, setState, type }) => {
       )}
     </section>
   );
+};
+
+TaskList.propTypes = {
+  data: PropTypes.array,
+  type: PropTypes.string,
+  setState: PropTypes.func,
 };
 
 export default TaskList;

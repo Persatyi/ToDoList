@@ -100,41 +100,6 @@
   margin-top: 20px;
 }
 
-.button {
-  padding: 8px 16px 8px 16px;
-  outline: none;
-  border: none;
-  border-radius: 2px;
-  background-color: #fff;
-  min-width: 100px;
-  min-height: 30px;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
-  transition: background-color 250ms linear, scale 250ms linear,
-    box-shadow 250ms linear;
-
-  font-family: "Roboto", sans-serif;
-  font-weight: 500;
-  font-size: 14px;
-  text-transform: uppercase;
-  text-align: center;
-}
-
 .button:not(:last-child) {
   margin-right: 20px;
-}
-
-.button:hover:not(:disabled),
-.button:focus:not(:disabled) {
-  outline: none;
-  background-color: rgba(0, 0, 0, 0.08);
-}
-
-.button:active:not(:disabled) {
-  transform: scale(0.98);
-  box-shadow: 0px 2px 3px rgba(9, 30, 63, 0.1);
-}
-
-.button:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
 }

@@ -2,9 +2,11 @@ import { Formik } from "formik";
 import { MdAddTask, MdDescription } from "react-icons/md";
 import { nanoid } from "nanoid";
 import { toast } from "react-toastify";
+import PropTypes from "prop-types";
 
 import s from "./Form.module.css";
 import Container from "components/Container";
+import Button from "components/Button";
 import { createSchema } from "assets/schemas/taskSchema";
 import { get, save, taskKey } from "localStorage/localStorage";
 
@@ -83,18 +85,21 @@ const Form = ({ setState }) => {
               />
               <MdDescription className={s.icon} />
             </div>
-            <button
+            <Button
               type="submit"
               className={s.button}
               disabled={!isValid && !dirty}
-            >
-              create
-            </button>
+              text="create"
+            />
           </form>
         )}
       </Formik>
     </Container>
   );
+};
+
+Form.propTypes = {
+  setState: PropTypes.func.isRequired,
 };
 
 export default Form;

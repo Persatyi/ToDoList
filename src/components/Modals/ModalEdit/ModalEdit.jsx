@@ -1,9 +1,11 @@
 import { Formik } from "formik";
 import { MdAddTask, MdDescription } from "react-icons/md";
 import { toast } from "react-toastify";
+import PropTypes from "prop-types";
 
 import s from "./ModalEdit.module.css";
 import ModalWrapper from "components/ModalWrapper";
+import Button from "components/Button";
 import { createSchema } from "assets/schemas/taskSchema";
 import { get, save, taskKey } from "localStorage/localStorage";
 
@@ -85,22 +87,35 @@ const ModalEdit = ({ open, onClose, data = {}, setState }) => {
               <MdDescription className={s.icon} />
             </div>
             <div className={s.btnWrapper}>
-              <button
+              <Button
                 type="submit"
                 className={s.button}
                 disabled={!isValid && !dirty}
-              >
-                edit
-              </button>
-              <button type="button" className={s.button} onClick={onClose}>
-                cancel
-              </button>
+                text="edit"
+              />
+              <Button
+                type="button"
+                className={s.button}
+                onClick={onClose}
+                text="cancel"
+              />
             </div>
           </form>
         )}
       </Formik>
     </ModalWrapper>
   );
+};
+
+Button.propTypes = {
+  data: PropTypes.shape({
+    name: PropTypes.string,
+    description: PropTypes.string,
+    id: PropTypes.string,
+  }),
+  open: PropTypes.bool,
+  onClose: PropTypes.func,
+  setState: PropTypes.func,
 };
 
 export default ModalEdit;
