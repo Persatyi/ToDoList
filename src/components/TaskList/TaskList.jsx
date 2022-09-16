@@ -7,11 +7,12 @@ import s from "./TaskList.module.css";
 import Container from "components/Container";
 import { ModalEdit, ModalDelete } from "components/Modals";
 import { save, taskKey } from "localStorage/localStorage";
+import { useToggle } from "hooks/useToggle";
 
 const TaskList = ({ data, setState, type }) => {
+  const [isEditOpen, openEditModal, closeEditModal] = useToggle();
+  const [isDeleteOpen, openDeleteModal, closeDeleteModal] = useToggle();
   const [filteredData, setFilteredData] = useState([]);
-  const [modalEdit, setModalEdit] = useState(false);
-  const [modalDelete, setModalDelete] = useState(false);
   const [task, setTask] = useState(null);
 
   useEffect(() => {
@@ -41,12 +42,12 @@ const TaskList = ({ data, setState, type }) => {
   const onEditClick = (id) => {
     const task = data.find((el) => el.id === id);
     setTask(task);
-    setModalEdit(true);
+    openEditModal();
   };
 
   const onDeleteClick = (id) => {
     setTask(id);
-    setModalDelete(true);
+    openDeleteModal();
   };
 
   return (
@@ -91,18 +92,18 @@ const TaskList = ({ data, setState, type }) => {
           )}
         </ul>
       </Container>
-      {modalEdit && (
+      {isEditOpen && (
         <ModalEdit
-          open={modalEdit}
-          onClose={() => setModalEdit(false)}
+          open={isEditOpen}
+          onClose={closeEditModal}
           data={task}
           setState={setState}
         />
       )}
-      {modalDelete && (
+      {isDeleteOpen && (
         <ModalDelete
-          open={modalDelete}
-          onClose={() => setModalDelete(false)}
+          open={isDeleteOpen}
+          onClose={closeDeleteModal}
           id={task}
           setState={setState}
         />
