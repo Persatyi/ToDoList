@@ -1,18 +1,19 @@
-import { Formik } from "formik";
-import { MdAddTask, MdDescription } from "react-icons/md";
-import { nanoid } from "nanoid";
-import { toast } from "react-toastify";
-import PropTypes from "prop-types";
+import { Formik } from 'formik';
+import { MdAddTask, MdDescription } from 'react-icons/md';
+import { nanoid } from 'nanoid';
+import { toast } from 'react-toastify';
+import PropTypes from 'prop-types';
 
-import s from "./Form.module.css";
-import Container from "components/Container";
-import Button from "components/Button";
-import { createSchema } from "assets/schemas/taskSchema";
-import { get, save, taskKey } from "localStorage/localStorage";
+import s from './Form.module.css';
+import Container from 'components/Container';
+import Button from 'components/Button';
+import { createSchema } from 'assets/schemas/taskSchema';
+import { get, save, taskKey } from 'localStorage/localStorage';
+
 
 const initialValues = {
-  name: "",
-  description: "",
+  name: '',
+  description: '',
 };
 
 const Form = ({ setState }) => {
@@ -28,7 +29,7 @@ const Form = ({ setState }) => {
       setState([data, ...dataBase]);
     }
     e.resetForm();
-    toast.success("Task successfully created");
+    toast.success('Task successfully created');
   };
 
   return (
